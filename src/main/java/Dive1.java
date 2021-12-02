@@ -7,6 +7,7 @@ public class Dive1 {
         List<String> course = new ArrayList<>();
         int horizontal = 0;
         int depth = 0;
+        int aim = 0;
         Scanner scanner = new Scanner(System.in);
         while (scanner.hasNextLine()) {
             String command = scanner.nextLine();
@@ -16,7 +17,6 @@ public class Dive1 {
                 break;
             }
         }
-        System.out.println(course);
 
 
         for (String s : course) {
@@ -25,12 +25,15 @@ public class Dive1 {
             switch (cours) {
                 case ("forward"):
                     horizontal = horizontal + unit;
+                    if (aim != 0){
+                        depth = depth + Math.multiplyExact(unit,aim);
+                    }
                     break;
                 case ("down"):
-                    depth = depth + unit;
+                    aim = aim + unit;
                     break;
                 case ("up"):
-                    depth = depth - unit;
+                    aim = aim - unit;
                     break;
             }
 
